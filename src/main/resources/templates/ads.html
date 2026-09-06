@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ads</title>
+</head>
+<body>
+
+<div th:insert="navbar"></div>
+
+<h2>Ads</h2>
+
+<p>
+    <a href="/ads/add">Add Ad</a>
+</p>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Client</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image Path</th>
+    </tr>
+
+    <tr th:each="a : ${ads}">
+        <td th:text="${a.adId}"></td>
+        <td th:text="${a.client.name}"></td>
+        <td th:text="${a.title}"></td>
+        <td th:text="${a.description}"></td>
+        <td th:text="${a.imagePath}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

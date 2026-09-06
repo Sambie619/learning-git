@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Ad</title>
+</head>
+<body>
+
+<div th:insert="navbar"></div>
+
+<h2>Add Ad</h2>
+
+<form th:action="@{/ads/save}" method="post">
+
+    <p>
+        Select Client:
+        <select name="clientId" required>
+            <option value="">-- Select Client --</option>
+
+            <option th:each="c : ${clients}"
+                    th:value="${c.clientId}"
+                    th:text="${c.name}">
+            </option>
+        </select>
+    </p>
+
+    <p>
+        Title:
+        <input type="text" name="title" required>
+    </p>
+
+    <p>
+        Description:
+        <textarea name="description"></textarea>
+    </p>
+
+    <p>
+        Image Path:
+        <input type="text" name="imagePath">
+    </p>
+
+    <button type="submit">Save Ad</button>
+
+</form>
+
+</body>
+</html>
